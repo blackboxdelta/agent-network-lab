@@ -1,0 +1,17 @@
+{
+  "tests_passed": 15,
+  "retention_seconds": 10800,
+  "cleanup_interval_seconds": 60,
+  "real_debate_turns_verified": 29,
+  "real_debate_replies_verified": true,
+  "real_debate_fallbacks_observed": 0,
+  "actual_service_task_and_response_verified": true,
+  "raw_prompt_and_response_trace_verified": true,
+  "served_model_count_verified": 1,
+  "expired_trace_returns_404_tested": true,
+  "notebook_cells_validated": 44,
+  "notes": [
+    "Evidence IDs do not validate the scientific correctness of generated claims.",
+    "No raw scientific arguments or prompts are stored in this verification file."
+  ]
+}

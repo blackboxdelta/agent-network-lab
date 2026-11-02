@@ -1,0 +1,25 @@
+{
+  "clients": 25,
+  "network_agents": 7,
+  "total_actors": 32,
+  "all_actors_received_inference": true,
+  "served_models": [
+    "qwen3-network"
+  ],
+  "metrics": {
+    "server_rss_mb": 370,
+    "invalid": 0,
+    "generated": 125,
+    "completed": 55,
+    "dropped": 0,
+    "inflight": 70,
+    "tokens": 7885,
+    "valid": 33,
+    "fallbacks": 0,
+    "network_latency": 6.927,
+    "inference_latency": 0.179,
+    "queue_latency": 0.046
+  },
+  "unit_tests_passed": 10,
+  "status": "paused after smoke test"
+}
