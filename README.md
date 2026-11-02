@@ -1,5 +1,13 @@
 # Agent Network Lab
 
+![Dashboard preview](dashboard-preview.jpg)
+
+![100-client network diagram](diagram-updated.jpg)
+
+![Learning controls](learning-controls.jpg)
+
+![Parallel serving and race demo](parallel-serving-proof.png)
+
 One hundred client agents and seven network agents, one shared Qwen3-0.6B model, vllm-metal, and a local dashboard. This project implements the agreed Python simulator; the notebook contains the complete app source plus setup and experiment cells.
 
 ## Open the notebook
