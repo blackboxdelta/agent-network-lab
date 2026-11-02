@@ -1,6 +1,8 @@
 # Agent Network Lab
 
-![Dashboard preview](dashboard-preview.jpg)
+![Localhost dashboard](local-dashboard.jpg)
+
+![Localhost scientific debate](local-scientific.jpg)
 
 ![Learning controls](learning-controls.jpg)
 
