@@ -12,3 +12,17 @@ Local Mac learning lab for 100 simulated clients, 20 concurrent shared-model seq
 Open `http://127.0.0.1:8020/` and `Agent_Network_Lab.ipynb` in VS Code.
 
 The client-to-gateway traffic is simulated in memory. Model calls are real localhost HTTP requests to one `vllm-metal` Qwen3-0.6B server. Traces expire after three hours.
+
+## Screenshots
+
+### Dashboard and topology
+
+![Dashboard preview](dashboard-preview.jpg)
+
+![Updated network diagram](diagram-updated.jpg)
+
+### Learning controls and parallel serving
+
+![Learning controls](learning-controls.jpg)
+
+![20-client parallel serving and race demonstration](parallel-serving-proof.png)
