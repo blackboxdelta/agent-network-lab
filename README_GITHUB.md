@@ -19,8 +19,6 @@ The client-to-gateway traffic is simulated in memory. Model calls are real local
 
 ![Dashboard preview](dashboard-preview.jpg)
 
-![Updated network diagram](diagram-updated.jpg)
-
 ### Learning controls and parallel serving
 
 ![Learning controls](learning-controls.jpg)

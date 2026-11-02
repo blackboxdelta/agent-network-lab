@@ -2,8 +2,6 @@
 
 ![Dashboard preview](dashboard-preview.jpg)
 
-![100-client network diagram](diagram-updated.jpg)
-
 ![Learning controls](learning-controls.jpg)
 
 ![Parallel serving and race demo](parallel-serving-proof.png)
