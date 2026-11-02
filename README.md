@@ -1,6 +1,6 @@
 # Agent Network Lab
 
-Twenty-five client agents and seven network agents, one shared Qwen3-0.6B model, vllm-metal, and a local dashboard. This project implements the agreed Python simulator; the notebook contains the complete app source plus setup and experiment cells.
+One hundred client agents and seven network agents, one shared Qwen3-0.6B model, vllm-metal, and a local dashboard. This project implements the agreed Python simulator; the notebook contains the complete app source plus setup and experiment cells.
 
 ## Open the notebook
 
@@ -27,9 +27,9 @@ The dashboard's **Stop run** stops scheduling and discards outstanding decisions
 
 - **Real:** vLLM HTTP calls, quantized Qwen3 inference through MLX/Metal, JSON validation, token counts, measured request/queue times, process RSS and SQLite event recording.
 - **Simulated:** 32 network actors, links, request traffic, service capacity, latency, bandwidth, loss and outages. Virtual time advances in 0.5-second ticks, so sub-tick timing is quantized. This is an application-message simulator, not a TCP/IP packet emulator.
-- Twenty-five clients send requests through gateways/routers to two services and receive responses. One observer exchanges status messages. Observer links cannot carry transit request traffic.
+- One hundred clients send requests through gateways/routers to two services and receive responses. One observer exchanges status messages. Observer links cannot carry transit request traffic.
 - Gateways can choose a preferred service; routers can choose a valid adjacent next hop. A preference is used only when it leaves a loop-free path. Ordinary code delivers messages and enforces all network rules.
-- Each agent has a separate bounded inbox and structured state. At most one pending or active request exists per agent. There is one shared model, up to two concurrent generations, no embedding/draft/supervisor model.
+- Each agent has a separate bounded inbox and structured state. At most one pending or active request exists per agent. There is one shared model, up to twenty concurrent generations, no embedding/draft/supervisor model.
 - All 32 agents use the same gateway and endpoint. Agents send status messages via the same simulated network. LLM control traffic is separate from simulated agent traffic.
 - Green decision events are model outputs. Invalid outputs get one retry; transport failures skip retry. Red fallback events are deterministic status actions, never presented as AI decisions.
 - Pause freezes virtual time and new inference dispatch. Existing inference may finish and is buffered. **Step** advances one virtual network tick and applies already buffered decisions; it does not dispatch new inference while paused.
@@ -70,9 +70,9 @@ Public references: [vllm-metal](https://github.com/vllm-project/vllm-metal), [co
 
 ## Scientific debate: quantum fault tolerance
 
-Choose **Scientific debate**, then **Start**. The 25 clients become 25 research participants in five teams: surface codes, quantum LDPC, neutral atoms, decoders/control, and critical reviewers. They use the same shared model and the same bounded gateway workers; no additional model is loaded. Four rounds of 25 turns cover opening claims, cross-examination, rebuttal and synthesis. The run pauses automatically after 100 turns. Pause and resume are available throughout.
+Choose **Scientific debate**, then **Start**. The 100 clients become 100 research participants in 20 teams of five, using the same five scientific lenses: surface codes, quantum LDPC, neutral atoms, decoders/control, and critical reviewers. They use the same shared model and the same bounded gateway workers; no additional model is loaded. Four phases cover opening claims, cross-examination, rebuttal and synthesis; the run pauses automatically after 100 turns.
 
-Each participant receives a role, a specific lens, selected evidence cards and an earlier argument from another team when one exists. Later turns identify the earlier turn they address. Their argument is also sent as a message through the simulated network. Transcript access is centrally mediated and is not gated by simulated packet delivery; network delays are visualized independently. The shared tiny model is not 25 independent experts. Evidence-ID validation only checks the ID, not whether the model interpreted the paper correctly. Explanations and citations can be wrong or superficial. No winner or scientific consensus is inferred from the debate.
+Each participant receives a role, a specific lens, selected evidence cards and an earlier argument from another team when one exists. Later turns identify the earlier turn they address. Their argument is also sent as a message through the simulated network. Transcript access is centrally mediated and is not gated by simulated packet delivery; network delays are visualized independently. The shared tiny model is not 100 independent experts. Evidence-ID validation only checks the ID, not whether the model interpreted the paper correctly. Explanations and citations can be wrong or superficial. No winner or scientific consensus is inferred from the debate.
 
 The initial evidence set is a selected teaching set, not a complete or current literature review:
 
@@ -95,6 +95,6 @@ The app must be running for periodic physical cleanup. If it is stopped, expired
 
 Useful endpoints: `/api/traces`, `/api/traces?kind=request`, `/api/traces?kind=inference`, `/api/traces?kind=debate`, and `/api/traces/{id}`. An expired or absent ID returns HTTP 404.
 
-## 25-client topology
+## 100-client topology
 
-Clients C01–C13 connect to Gateway 1 (A4); C14–C25 connect to Gateway 2 (A5). Infrastructure IDs A4–A10 are retained. There are **32 actors total**, sharing the same one loaded model. The default service time is 0.2 virtual seconds so the larger workload has a useful baseline; increase it to demonstrate congestion. The 25 clients produce 25 requests every three virtual seconds at load 1.
+Clients C01–C50 connect to Gateway 1 (A4); C51–C100 connect to Gateway 2 (A5). Infrastructure IDs A4–A10 are retained. There are **107 actors total**, sharing the same one loaded model. The default service time is 0.2 virtual seconds; increase it to demonstrate congestion. The 100 clients produce requests every three virtual seconds at load 1.

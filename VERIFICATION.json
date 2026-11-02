@@ -1,7 +1,7 @@
 {
-  "clients": 25,
+  "clients": 100,
   "network_agents": 7,
-  "total_actors": 32,
+  "total_actors": 107,
   "all_actors_received_inference": true,
   "served_models": [
     "qwen3-network"
